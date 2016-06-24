@@ -4,7 +4,6 @@ ALBERTO E. VILANO REYNA
 Leap Year Calculator!
 */
 
-var yearX = "undefined";
 var prompt = require('prompt');
 
 prompt.start();
