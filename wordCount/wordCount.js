@@ -20,7 +20,7 @@ free: 1
 */
 function count(words) {
 
-	var wordsArray = words.split( /\s+/g );
+	var wordsArray = words.trim().split( /[\s\n\t]+/g );
 	var wordObject = {};
 
 	for (i = 0; i < wordsArray.length; i++) {
