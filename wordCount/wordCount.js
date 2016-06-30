@@ -18,22 +18,19 @@ free: 1
 3. Link us to your word-count.js file on Slack.
 
 */
-function count(words) {
 
-	var wordsArray = words.trim().split( /[\s\n\t]+/g );
+function count(input) {
+
+	var wordBank = input.trim().toLowerCase().split(/[\s\n\t]+/);
 	var wordObject = {};
 
-	for (i = 0; i < wordsArray.length; i++) {
+	for (word in wordBank) {
 
-	var word = wordsArray[i].toLowerCase();
+		if (wordObject.hasOwnProperty(wordBank[word])) { wordObject[wordBank[word]]++; }
+		else { wordObject[wordBank[word]] = 1; };
+	};
 
-		if (!wordObject[word]) { wordObject[word] = 1; }
-
-		else 						  { wordObject[word]++;   }
-
-	}
-		return wordObject;
-
+	return wordObject;
 };
 
 /// -- do not edit below ---
