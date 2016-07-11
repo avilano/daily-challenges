@@ -19,7 +19,7 @@ Q, Z                               10
 ```
 
 ## Examples
-"cabbage" should be scored as worth 14 points:
+'cabbage' should be scored as worth 14 points:
 
 - 3 points for C
 - 1 point for A, twice
@@ -35,7 +35,8 @@ And to total:
 - = 14
 
 ### Instructions
-1. Review the description, and create a scopre method that returns the score based on the rules above.
+1. Review the description, and create a scopre method that returns the score based
+on the rules above.
 2. Once you have a passing test suite, add your code to your daily-challenges repo
 3. Link us to your scrabble.js file on Slack.
 
@@ -43,51 +44,51 @@ And to total:
 
 
 function score(string) {
-	var letterBank = {
+  const letterBank = {
 
-    "A": 1,
-    "B": 3,
-    "C": 3,
-    "D": 2,
-    "E": 1,
-    "F": 4,
-    "G": 2,
-    "H": 4,
-    "I": 1,
-    "J": 8,
-    "K": 5,
-    "L": 1,
-    "M": 3,
-    "N": 1,
-    "O": 1,
-    "P": 3,
-    "Q": 10,
-    "R": 1,
-    "S": 1,
-    "T": 1,
-    "U": 1,
-    "V": 4,
-    "W": 4,
-    "X": 8,
-    "Y": 4,
-    "Z": 10
-	};
-
-
-	var total = 0;
-	if(string === null) return 0;
-
-	words = string.toUpperCase();
-
-	for(letter in words) {
-		total += letterBank[words[letter]];
-	}
-
-	return total;
-};
+    A: 1,
+    B: 3,
+    C: 3,
+    D: 2,
+    E: 1,
+    F: 4,
+    G: 2,
+    H: 4,
+    I: 1,
+    J: 8,
+    K: 5,
+    L: 1,
+    M: 3,
+    N: 1,
+    O: 1,
+    P: 3,
+    Q: 10,
+    R: 1,
+    S: 1,
+    T: 1,
+    U: 1,
+    V: 4,
+    W: 4,
+    X: 8,
+    Y: 4,
+    Z: 10,
+  };
 
 
-/// -- do not edit below ---
+  let total = 0;
+  if (string === null) return 0;
+
+  const words = string.toUpperCase();
+
+  for (const letter of Object.keys(words)) {
+    total += letterBank[words[letter]];
+  }
+
+  return total;
+}
+
+
+//  -- do not edit below ---
 
 
 describe('Scrabble', function() {

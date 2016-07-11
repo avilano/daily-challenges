@@ -20,18 +20,19 @@ free: 1
 */
 
 function count(input) {
+  const wordBank = input.trim().toLowerCase().split(/[\s\n ]+/);
+  const wordObject = {};
 
-	var wordBank = input.trim().toLowerCase().split(/[\s\n\t]+/);
-	var wordObject = {};
+  for (const word of Object.keys(wordBank)) {
+    if (wordObject.hasOwnProperty(wordBank[word])) {
+      wordObject[wordBank[word]]++;
+    } else {
+      wordObject[wordBank[word]] = 1;
+    }
+  }
 
-	for (word in wordBank) {
-
-		if (wordObject.hasOwnProperty(wordBank[word])) { wordObject[wordBank[word]]++; }
-		else { wordObject[wordBank[word]] = 1; };
-	};
-
-	return wordObject;
-};
+  return wordObject;
+}
 
 /// -- do not edit below ---
 
@@ -79,7 +80,7 @@ describe('count()', function() {
 
   it('counts tabs', function() {
     var expectedCounts = { hello: 1, world: 1 };
-    expect(count('hello\tworld')).toEqual(expectedCounts);
+    expect(count('hello  world')).toEqual(expectedCounts);
   });
 
   it('counts multiple spaces as one', function() {
@@ -89,7 +90,7 @@ describe('count()', function() {
 
   it('does not count leading or trailing whitespace', function() {
     var expectedCounts = { introductory: 1, course: 1 };
-    expect(count('\t\tIntroductory Course      ')).toEqual(expectedCounts);
+    expect(count('    Introductory Course      ')).toEqual(expectedCounts);
   });
 
   it('handles properties that exist on Object’s prototype', function() {

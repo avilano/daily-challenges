@@ -1,7 +1,10 @@
 /*
 # Allergies
 
-Write a program that, given a person's allergy score, can tell them whether or not they're allergic to a given item, and their full list of allergies.
+Write a program that, given a person's allergy score,
+can tell them whether or not they're
+allergic to a given item,
+and their full list of allergies.
 
 An allergy test produces a single numeric score which contains the
 information about all the allergies the person has (that they were
@@ -27,33 +30,32 @@ Now, given just that score of 34, your program should be able to say:
 */
 
 
-
 function Allergies(allergyList) {
   this.allergyList = allergyList;
 }
 
-Allergies.outputs = [ 'eggs', 'peanuts', 'shellfish', 'strawberries',
+Allergies.outputs = ['eggs', 'peanuts', 'shellfish', 'strawberries',
                                  'tomatoes', 'chocolate', 'pollen', 'cats'];
 
 Allergies.prototype = {
-  list: function() {
-    var outputs = Allergies.outputs;
+  list() {
+    const outputs = Allergies.outputs;
 
-    var allergicTo = [];
+    const allergicTo = [];
 
-    for (var i = 0; i < outputs.length; i++) {
-      var allergy = outputs[i];
-      if (this.allergyList & Math.pow(2,i)) {
+    for (let i = 0; i < outputs.length; i++) {
+      const allergy = outputs[i];
+      if (this.allergyList & Math.pow(2, i)) {
         allergicTo.push(allergy);
       }
     }
     return allergicTo;
   },
-  allergicTo: function(food) {
-    var isAllergic = false;
+  allergicTo(food) {
+    let isAllergic = false;
 
-    var allergyList = this.list();
-    for (var i = 0; i < allergyList.length; i++) {
+    const allergyList = this.list();
+    for (let i = 0; i < allergyList.length; i++) {
       if (allergyList[i] === food) {
         isAllergic = true;
         break;
@@ -61,12 +63,10 @@ Allergies.prototype = {
     }
 
     return isAllergic;
-  }
+  },
 };
 
-
-
-/////
+//------------------------
 
 describe('Allergies',function() {
 

@@ -19,35 +19,32 @@ He answers 'Whatever.' to anything else.
 
 */
 
-var hey = function(input) {
-
-  var quietBob = function(input) {
-     if (input === '' || input === '   '){
-		  return true
-	  } 										//checking for any silences
+const hey = function bob(input) {
+  const quietBob = function silence() {
+    if (input === '' || input === '   ') {
+      return true;
+    }
+// checking for any silences
   };
 
-  var bobYells = function(input) {
-    return input.toUpperCase() === input && input.toLowerCase() !== input;  //found this clever test on the internetz >:D
+  const bobYells = function yells() {
+    return input.toUpperCase() === input && input.toLowerCase() !== input;
   };
 
-  var bobAsk = function(input) {
-	  return input.charAt(input.length - 1) == '?';    //cheching for questions
+  const bobAsk = function questions() {
+    return input.charAt(input.length - 1) === '?';    // cheching for questions
   };
 
-    if (bobYells (input) ) {return 'Whoa, chill out!';}
+  if (bobYells(input)) {
+    return 'Whoa, chill out!';
+  } else if (bobAsk(input)) {
+    return 'Sure.';
+  } else if (quietBob(input)) {
+    return 'Fine. Be that way!';
+  } return 'Whatever.';
+};
 
-    else if (bobAsk (input) ) {return 'Sure.';}
-
-	 else if (quietBob (input) ) {return 'Fine. Be that way!';}
-
-    else { return 'Whatever.'; };
-
-
-  };
-
-
-/// -- do not edit below ---
+// -- do not edit below ---
 
 describe('Bob', function() {
 
