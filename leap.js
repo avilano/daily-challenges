@@ -1,16 +1,11 @@
-function isLeap(year){
+function isLeap(year) {
+  if ((year % 4) === 0 && (year % 100) !== 0 || (year % 400) === 0) {
+    return true;
+  }
+  return false;
+}
 
-    if ( (year%4) == 0 && (year%100) != 0 || (year%400) == 0){
-
-      return true;
-    }
-    else {
-		 return false;
-	 }
-
- };
-
-/// -- do not edit below ---
+// -- do not edit below ---
 
 describe('Leap year', function() {
 
